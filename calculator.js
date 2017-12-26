@@ -12,10 +12,9 @@ var calculatorModule = (function () {
     
   /**
    * Validation
-   */
-    let validation = function(x) {
+   */let validation = function(x) {
         if (isNaN(x) === true) {
-            console.log("Error" + x + " is not a number!");
+          throw Error(X + " is not a number!");
         } 
     }
       /**
@@ -77,7 +76,7 @@ let getTotal = function(){
    */
 let divide = function(x) {
     validation(x);
-    return x /= total
+    return total /= x //should be reversed num divided by total or: x /= total or reword question: total divided by number
 
 }
 
@@ -93,7 +92,7 @@ let recallMemory = function() {
    * Stores the value of `total` to `memory`
    */
 let saveMemory = function () {
-    total = memory;
+    memory = total;
     
 }
 
@@ -108,13 +107,14 @@ let saveMemory = function () {
   return calculator = { //modules go here
     load: load,
     getTotal: getTotal,
+    validation: validation,
     add: add, 
-    subract: subract,
+    subtract: subtract,
     multiply: multiply,
-    divide: divide
+    divide: divide,
     recallMemory: recallMemory,
     saveMemory: saveMemory,
-    clearMemory: clearMemory;
+    clearMemory: clearMemory,
     };
 
 });
