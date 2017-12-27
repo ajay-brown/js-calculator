@@ -5,31 +5,30 @@
  * @variable PRIVATE { Number } `total`
  * @return {object} `calculator` object that can be used
  */
-var calculatorModule = (function () {
+function calculatorModule() {
     let memory = 0;
     let total = 0;
     
     
-  /**
-   * Validation
-   */let validation = function(x) {
-        if (isNaN(x) === true) {
-          throw Error(X + " is not a number!");
-        } 
-    }
-      /**
-   * sets the `total` to the number passed in
-   * @param  { Number } x
-   * @return { Number }    current total
-   */
+
 
 let load = function(x) {
-  
     validation(x);
         total = x;
         return total;
         };
-
+  /**
+   * Validation
+   */let validation = function(x) {
+    if (isNaN(x)) {
+        throw new Error(X + " is not a number!");
+      } 
+  }
+    /**
+ * sets the `total` to the number passed in
+ * @param  { Number } x
+ * @return { Number }    current total
+ */
   /**
    * Return the value of `total`
    * @return { Number }
@@ -107,7 +106,6 @@ let saveMemory = function () {
   return calculator = { //modules go here
     load: load,
     getTotal: getTotal,
-    validation: validation,
     add: add, 
     subtract: subtract,
     multiply: multiply,
@@ -115,8 +113,8 @@ let saveMemory = function () {
     recallMemory: recallMemory,
     saveMemory: saveMemory,
     clearMemory: clearMemory,
-    };
 
-});
-
+    }
+}
+//let myCalculator = calculatorModule()
 
